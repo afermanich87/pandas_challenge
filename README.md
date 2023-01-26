@@ -1,0 +1,159 @@
+# pandas_challenge
+
+This assignement requires the use of Panda DataFrames to analyze school and standardized test data.
+
+## Prep Work
+
+Before you start:
+
+* Create a new repository (e.g.- one that did not previously exist) for this project called `pandas_challenge`.
+
+* Clone the new repository to your computer.
+
+* Inside your local git repository, create a directory called **`PyCitySchools`**.
+
+* Add your Jupyter Notebook to this folder.
+
+* Push these changes to GitHub.
+
+* Download the following files to get started:
+https://static.bc-edx.com/data/dl-1-2/m4/lms/starter/Starter_Code.zip
+
+## District Summary
+
+Perform the necessary calculations and create a DataFrame showing the following:
+
+* Total number of unique schools
+
+* Total students
+
+* Total budget
+
+* Average math score
+
+* Average reading score
+
+* % passing math (the percentage of students who passed math)
+
+* % passing reading (the percentage of students who passed reading)
+
+* % overall passing (the percentage of students who passed math AND reading)
+
+  ```Text
+	Total Schools	Total Students	Total Budget	Average Math Score	Average Reading Score	% Passing Math	% Passing Reading	% Overall Passing
+0	    15	      39,170	   $24,649,428.00	    78.985371	             81.87784	        74.980853	      85.805463	        65.172326
+  ```
+
+## School Summary
+
+Perform the necessary calculations and create a DataFrame showing the following:
+
+* School name
+
+* School type
+
+* Total students
+
+* Total school budget
+
+* Per student budget
+
+* Average math score
+
+* Average reading score
+
+* % passing math (the percentage of students who passed math)
+
+* % passing reading (the percentage of students who passed reading)
+
+* % overall passing (the percentage of students who passed math AND reading)
+
+## Highest-Performing Schools (by % Overall Passing)
+
+Sort the schools by `% Overall Passing` in descending order and display the top 5 rows.
+Save the results in a DataFrame called "top_schools".
+
+## Lowest-Performing Schools (by % Overall Passing)
+
+Sort the schools by `% Overall Passing` in ascending order and display the top 5 rows.
+Save the results in a DataFrame called "bottom_schools".
+
+## Math Scores by Grade
+
+Perform the necessary calculations to create a DataFrame that lists the average math score for students of each grade level (9th, 10th, 11th, 12th) at each school.
+
+## Reading Scores by Grade
+
+Create a DataFrame that lists the average reading score for students of each grade level (9th, 10th, 11th, 12th) at each school.
+
+## Scores by School Spending
+
+Create a table that breaks down school performance based on average spending ranges (per student).
+Use the code provided below to create four bins with reasonable cutoff values to group school spending:
+
+
+  ```text
+spending_bins = [0, 585, 630, 645, 680]
+labels = ["<$585", "$585-630", "$630-645", "$645-680"]
+  ```
+  
+  
+Use `pd.cut` to categorize spending based on the bins.
+Use the following code to then calculate mean scores per spending range:
+
+  ```text
+spending_math_scores = school_spending_df.groupby(["Spending Ranges (Per Student)"]).mean()["Average Math Score"]
+spending_reading_scores = school_spending_df.groupby(["Spending Ranges (Per Student)"]).mean()["Average Reading Score"]
+spending_passing_math = school_spending_df.groupby(["Spending Ranges (Per Student)"]).mean()["% Passing Math"]
+spending_passing_reading = school_spending_df.groupby(["Spending Ranges (Per Student)"]).mean()["% Passing Reading"]
+overall_passing_spending = school_spending_df.groupby(["Spending Ranges (Per Student)"]).mean()["% Overall Passing"]
+ ```
+Use the scores above to create a DataFrame called `spending_summary`.
+Include the following metrics in the table:
+
+* Average math score
+
+* Average reading score
+
+* % passing math (the percentage of students who passed math)
+
+* % passing reading (the percentage of students who passed reading)
+
+* % overall passing (the percentage of students who passed math AND reading)
+
+## Scores by School Size
+
+Use the following code to bin the `per_school_summary`:
+
+  ```text
+size_bins = [0, 1000, 2000, 5000]
+labels = ["Small (<1000)", "Medium (1000-2000)", "Large (2000-5000)"]
+  ```
+  
+Use `pd.cut` on the "Total Students" column of the `per_school_summary` DataFrame.
+Create a DataFrame called `size_summary` that breaks down school performance based on school size (small, medium, or large).
+
+
+## Scores by School Type
+
+Use the `per_school_summary` DataFrame from the previous step to create a new DataFrame called `type_summary`.
+This new DataFrame should show school performance based on the "School Type".
+
+
+## Written Analysis
+
+Present a written analysis that summarizes the data **and** draw two conclusions or comparisons from the calculations. 
+
+
+
+
+
+
+## Final Tips
+
+* Commit your work and back it up with pushes to GitHub.
+* Add a detailed `README.md` file to your repository.
+
+
+- - -
+Data generated by Mockaroo, LLC Links to an external site., (2022). Realistic Data Generator. Data for this dataset was generated by edX Boot Camps LLC, and is intended for educational purposes only.
